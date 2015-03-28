@@ -1,0 +1,43 @@
+<div ng-controller="controllers.AdminView">
+
+    <div class="coll-1" style="align-content: center; text-align: center; padding-top: 1em;">
+
+        <div class="inlineBlock">
+
+            <div class="license-plate-input">
+                <input type="text" name="num" placeholder="А777АА" class="in1 np rn-font" ng-model="number">
+                <input type="text" name="region" placeholder="77"  class="in2 np rn-font" ng-model="region">
+            </div>
+
+        </div>
+
+        <div class="inlineBlock">
+
+            <button type="submit" class="btn xlarge btn-primary" style="float: right;"
+                    ng-click="getCar(number,region)">
+                Проверить
+            </button>
+
+        </div>
+
+        <div>
+            <p>{{errMessage}}</p>
+        </div>
+
+        <div class="coll-1" style="align-content: center; text-align: center; padding-top: 1em;">
+
+            <p>
+                Ссылка на найденный документ:
+            </p>
+
+            <p>
+                <a href="{{receivedLink}}">{{receivedLink}}</a>
+            </p>
+
+            <p>Ссылка будет работоспособна в течении 24 часов. Вы можете передать её другому человеку.</p>
+
+        </div>
+
+    </div>
+
+</div>

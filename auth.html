@@ -1,0 +1,27 @@
+<div class="main-container" ng-controller="controllers.AuthView">
+
+    <div> <!-- ACCOUNT -->
+        <h2 class="titular">Аккаунт</h2>
+
+        <div>
+            <input type="text" placeholder="" class="email text-input" ng-model="username">
+            <div class="input-icon envelope-icon-acount">
+                <span class="fontawesome-envelope scnd-font-color"></span>
+            </div>
+        </div>
+
+        <div>
+            <input type="password" placeholder="" class="password text-input" ng-model="password">
+            <div class="input-icon password-icon">
+                <span class="fontawesome-lock scnd-font-color"></span>
+            </div>
+        </div>
+
+        <button type="submit" ng-click="login(username,password)">
+            Вход
+        </button>
+
+        <p>{{errorMsg}}</p>
+    </div>
+
+</div>

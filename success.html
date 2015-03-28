@@ -1,0 +1,275 @@
+<script type="text/javascript">
+    (function (d, w, c) {
+     (w[c] = w[c] || []).push(function() {
+          try {
+          w.yaCounter24002680 = new Ya.Metrika({id:24002680,
+               webvisor:true,
+               clickmap:true,
+               trackLinks:true,
+               accurateTrackBounce:true});
+          
+          } catch(e) { }
+          });
+
+     var n = d.getElementsByTagName("script")[0],
+     s = d.createElement("script"),
+     f = function () { n.parentNode.insertBefore(s, n); };
+     s.type = "text/javascript";
+     s.async = true;
+     s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+     if (w.opera == "[object Opera]") {
+     d.addEventListener("DOMContentLoaded", f, false);
+     } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+     ga('create', 'UA-49675055-1', 'adaperio.ru');
+     ga('send', 'pageview');
+</script>
+
+<div>
+
+    <div style="width: 900px; margin-left: auto; margin-right: auto;">
+
+        <div class="contents">
+             <h2>
+               <span ng-if="model.length" style="color: #3366ff; font-size: 32px;">
+                    Автомобиль {{model}} 
+               </span>
+
+               <span ng-if="!model.length" style="color: #3366ff; font-size: 32px;">
+                    Автомобиль {{numberAsked}}
+               </span>
+             </h2>
+             <p ng-if="numberAsked.length">
+               Номер: <b>{{numberAsked}}</b>
+             </p>
+             <p ng-if="vin.length">
+               VIN: <b>{{vin}}</b>
+             </p>
+             <p ng-if="body.length">
+               Номер кузова: <b>{{body}}</b>
+             </p>
+             <p ng-if="year.length">
+               Год производства: <b>{{year}}</b>
+             </p>
+
+         </div>
+
+         <div>
+             <p ng-if="autoNomerPics.length">
+                 <table style="width: 90%; table-layout:fixed;">
+                    <tr ng-repeat="link in autoNomerPics">
+                        <td>
+                             <img src="{{link}}" alt="Car photo" width="400">
+                        </td>
+                    </tr>
+                 </table>
+             </p>
+         </div>
+
+         <br>
+         <h3>Информация:</h3>
+
+         <div id="result_contents" style="font: 13px/19px Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;">
+             <!-- MIlleage -->
+
+             <!--
+             <p ng-if="milleage">
+                 <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                 />
+                 <span style="font-size: 16px;">
+                    Пробег автомобиля: <b>{{milleageMsg}}.</b>
+                 </span>
+             </p>
+             <p ng-if="milleage">
+               Дата фиксации пробега: <b>{{milleageCheckDate}}.</b>
+             </p>
+             -->
+             <p ng-if="milleage">
+                 <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                  />
+                  <span style="font-size: 16px;">
+                    Пробег автомобиля:</b>
+                  </span>
+
+                  <table ng-if="milleageArr.length" style="width: 50%;">
+                    <tr>
+                        <th>Дата фиксации</th>
+                        <th>Значение</th>
+                    </tr>
+                    <tr ng-repeat="item in milleageArr">
+                        <td>{{item.year}}</td>
+                        <td>{{item.milleage}} км.</td>
+                    </tr>
+                  </table>
+             </p>
+             <p ng-if="!milleage">
+                 <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                 />
+                 <span style="font-size: 16px;">
+                    Пробег автомобиля <b>не найден.</b>
+                 </span>
+             </p>
+
+             <!-- Accidents -->
+             <p ng-if="receivedLinks.length">
+                 <img ng-if="receivedLinks.length"
+                         src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                 />
+                 <span ng-if="receivedLinks.length" style="font-size: 16px;">
+                      Факты участия в <b>ДТП</b>:
+                 </span>
+
+                 <table ng-if="receivedLinks.length" style="width: 90%; table-layout:fixed;">
+                    <tr ng-repeat="tuple in receivedLinks">
+                        <td>Документ {{$index + 1}}: <a href="{{tuple.link}}">{{tuple.link}}</a></td>
+                    </tr>
+                 </table>
+
+                 <span ng-if="receivedLinks.length">
+                    Ссылки будут работоспособны в течении 24 часов. Вы можете передать их другому человеку.
+                 </span>
+             </p>
+             <p ng-if="!receivedLinks.length">
+                 <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                  />
+                 <span ng-if="!accidentFound" style="font-size: 16px;">
+                      Данные об участи в ДТП не найдены.
+                 </span>
+             </p>
+
+             <!-- Photos -->
+             <p>
+                 <img 
+                         src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                 />
+                 <span style="font-size: 16px;">
+                      Фотографии <b>повреждений</b> автомобиля:
+                 </span>
+                 <table ng-if="receivedPhotos.length" style="width: 90%; table-layout:fixed;">
+                    <tr ng-repeat="tuple in receivedPhotos">
+                        <td>Фото {{$index + 1}}: <a href="{{tuple.link}}">{{tuple.link}}</a></td>
+                    </tr>
+                 </table>
+                 <span ng-if="receivedPhotos.length">
+                    Ссылки будут работоспособны в течении 24 часов. Вы можете передать их другому человеку.
+                 </span>
+             </p>
+             <p ng-if="!receivedPhotos.length">
+                Не найдены.
+             </p>
+
+             <!-- Taxi -->
+             <p>
+                <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                />
+                <span style="font-size: 16px;">
+                    Использование автомобиля в качестве <b>такси</b>:
+                </span>
+             </p>
+             <p ng-if="taxiMake.length">
+               Автомобиль {{taxiMake}} использовался в качестве такси c <b>{{taxiStarted}}</b> по <b>{{taxiEnded}}</b>.
+             </p>
+             <p ng-if="taxiOwner.length">
+               Лицензия на деятельность в качестве такси: {{taxiOwner}}.
+             </p>
+             <p ng-if="!taxiMake.length">
+               Автомобиль не был зарегистрирован в качестве такси.
+             </p>
+
+             <!--GIBDD -->
+             <!--wanted-->
+             <p>
+                <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                />
+                <span ng-if="!gibddWanted" style="font-size: 16px;">
+                    Информация о <b>розыске</b> транспортного средства, в федеральной информационной системе МВД России:
+                </span>
+                <span ng-if="gibddWanted" style="font-size: 16px;">
+                      <font color="red">Автомобиль <b>ЗНАЧИТСЯ в РОЗЫСКЕ</b>!!!</font>
+                </span>
+             </p>
+             <p ng-if="gotGibddWanted && !gibddWanted">
+                Автомобиль не числится в розыске.
+             </p>
+             <table ng-if="wantedArr.length" style="width: 90%; table-layout:fixed;">
+               <tr>
+                   <th>Марка (модель) ТС</th>
+                   <th>Год выпуска</th>
+                   <th>Дата постоянного учета</th>
+                   <th>Регион инициатор розыска</th>
+               </tr>
+               <tr ng-repeat="item in wantedArr">
+                   <td>{{item.w_model}}</td>
+                   <td>{{item.w_god_wyp}}</td>
+                   <td>{{item.w_data_pu}}</td>
+                   <td>{{item.w_reg_inic}}</td>
+               </tr>
+             </table>
+             <p ng-if="!gotGibddWanted">
+                Информация не найдена.
+             </p>
+
+             <!--restriction-->
+             <p>
+                <img src="pic/yes.png"
+                         style="height: 28px; width: 28px; margin-top: 0px;"
+                         alt=""
+                />
+                <span style="font-size: 16px;">
+                Информация о наложении <b>ограничений</b> в федеральной информационной системе МВД России:
+                </span>
+             </p>
+             <p ng-if="gotGibddRestricted && !gibddRestricted">
+                Ограничений нет.
+             </p>
+             <table ng-if="restrictedArr.length" style="width: 90%; table-layout:fixed;">
+               <tr>
+                   <th>Марка (модель) ТС</th>
+                   <th>Год выпуска</th>
+                   <th>Дата наложения ограничения</th>
+                   <th>Регион наложения ограничения</th>
+                   <!--<th>Кем наложено ограничение</th>-->
+                   <th>Вид ограничения</th>
+               </tr>
+               <tr ng-repeat="item in restrictedArr">
+                   <td>{{item.tsmodel}}</td>
+                   <td>{{item.tsyear}}</td>
+                   <td>{{item.dateogr}}</td>
+                   <td>{{item.regname}}</td>
+                   <!--<td>{{item.w_reg_inic}}</td>-->
+                   <td>{{item.ogrmsg}}</td>
+               </tr>
+             </table>
+             <p ng-if="!gotGibddRestricted">
+                Информация не найдена.
+             </p>
+        </div>
+
+   </div>
+
+</div>

@@ -1,0 +1,25 @@
+/*
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Ubuntu'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/2Q-AW1e_taO6pHwMXcXW5w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/0ihfXUL2emPh0ROJezvraKCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}*/
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Roboto Thin'), local('Roboto-Thin'), url(../fonts/Robota100.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'RoadNumbers';
+    src: url('../fonts/RoadNumbers2.0.otf') format('otf');
+}
